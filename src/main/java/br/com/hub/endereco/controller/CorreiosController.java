@@ -1,6 +1,7 @@
 package br.com.hub.endereco.controller;
 
 import br.com.hub.endereco.exception.NoContentException;
+import br.com.hub.endereco.exception.NotReadyException;
 import br.com.hub.endereco.model.Address;
 import br.com.hub.endereco.service.CorreiosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class CorreiosController {
     }
 
     @GetMapping("/zipcode/{zipcode}")
-    public Address getAdressByZipCode(@PathVariable("zipcode") String zipcode) throws NoContentException{
+    public Address getAdressByZipCode(@PathVariable("zipcode") String zipcode) throws NoContentException, NotReadyException {
 
         return this.service.getAddresByZipCode(zipcode);
 
